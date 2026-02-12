@@ -244,7 +244,7 @@ http://<VM-IP>
 Application loads successfully.
 
 
-![description](screenshots/container-created.png)
+![Container Created](./screenshots/container-created.png)
 
 ![description](screenshots/running.png)
 
