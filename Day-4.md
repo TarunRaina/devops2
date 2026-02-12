@@ -72,7 +72,6 @@ Docker version 29.2.1
 docker images
 docker ps -a
 openjdk 21.0.10
-📸 Screenshot placeholder
 
 Purpose: sanity check before moving into CI/CD.
 
@@ -82,7 +81,7 @@ git clone https://github.com/TarunRaina/react-site-sample-devops.git
 cd react-site-sample-devops
 Install Dependencies
 npm i
-Warnings appeared due to Node version mismatch (React Router expects Node ≥20), but install succeeded.
+Warnings appeared due to Node version mismatch (React Router expects Node ≥20), but the install succeeded.
 
 Run Development Server
 npm run dev
@@ -92,7 +91,8 @@ npx vite --host
 App became accessible at:
 
 http://<VM-IP>:5173
-📸 Screenshot placeholder
+<img width="1919" height="960" alt="image" src="https://github.com/user-attachments/assets/a482c931-b9f4-4abf-9df8-f8d85078efff" />
+
 
 Modify Package Script + Push Changes
 git add package.json
@@ -114,10 +114,12 @@ sudo usermod -aG docker jenkins
 sudo systemctl restart jenkins
 sudo systemctl restart docker
 Verify:
-
 sudo su - jenkins
 docker ps
 No permission errors → Jenkins is Docker-capable.
+
+
+<img width="1919" height="616" alt="Screenshot 2026-02-12 112124" src="https://github.com/user-attachments/assets/68da3a25-8f27-4898-842a-07029b94a1e2" />
 
 Phase 3 — Application for CI/CD
 A minimal Node + Express app was prepared with:
@@ -151,7 +153,8 @@ ls
 Workspace:
 
 /var/lib/jenkins/workspace/clone-job
-📸 Screenshot placeholder
+<img width="1919" height="973" alt="Screenshot 2026-02-12 132554" src="https://github.com/user-attachments/assets/b642b93c-157e-42a9-9693-d689505adb93" />
+
 
 🔹 Job 2 — docker-image-job (Triggered by clone-job)
 Trigger:
@@ -173,7 +176,9 @@ echo "Docker image pipeline-app created successfully."
 This produces:
 
 pipeline-app:latest
-📸 Screenshot placeholder
+<img width="1919" height="979" alt="Screenshot 2026-02-12 132708" src="https://github.com/user-attachments/assets/5c311696-9ae6-4d6a-8450-8949935b6dec" />
+<img width="1118" height="431" alt="Screenshot 2026-02-12 132713" src="https://github.com/user-attachments/assets/7da2d4b1-9501-42f9-a415-534c9b8e782f" />
+
 
 🔹 Job 3 — docker-run-job (Triggered by docker-image-job)
 Trigger:
@@ -198,9 +203,9 @@ Removes old container
 
 Runs new one
 
-Maps port 80 → 3000
 
-📸 Screenshot placeholder
+<img width="1141" height="770" alt="Screenshot 2026-02-12 132738" src="https://github.com/user-attachments/assets/8672eaef-8254-499c-90f0-5ed30c54f6f8" />
+
 
 Phase 5 — Execution Flow
 Only Job 1 is started manually:
@@ -239,7 +244,8 @@ Browser Test
 http://<VM-IP>
 Application loads successfully.
 
-📸 Screenshot placeholder
+<img width="1919" height="771" alt="Screenshot 2026-02-12 132823" src="https://github.com/user-attachments/assets/8d709e1b-d660-4e4a-893b-c9e5d58e08e0" />
+
 
 ✅ Result
 A complete CI/CD pipeline:
