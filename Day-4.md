@@ -40,7 +40,6 @@ Triggered manually at Stage 1, then fully automated downstream.
 
 ### Creating and Running a Shell Script
 
-```bash
 ./sample-script.sh
 Permission denied → fixed via:
 
@@ -176,6 +175,8 @@ echo "Docker image pipeline-app created successfully."
 This produces:
 
 pipeline-app:latest
+
+
 ![description](screenshots/build-img-item1.png)
 ![description](screenshots/trig-item3.png)
 
@@ -243,7 +244,7 @@ Browser Test
 http://<VM-IP>
 Application loads successfully.
 
-![Container](https://raw.githubusercontent.com/TarunRaina/devops2/day4/screenshots/container-created.png)
+![description](screenshots/container-created.png)
 
 ![description](screenshots/running.png)
 
