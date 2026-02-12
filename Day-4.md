@@ -91,7 +91,7 @@ npx vite --host
 App became accessible at:
 
 http://<VM-IP>:5173
-<img width="1919" height="960" alt="image" src="https://github.com/user-attachments/assets/a482c931-b9f4-4abf-9df8-f8d85078efff" />
+![description](screenshots/website.png)
 
 
 Modify Package Script + Push Changes
@@ -118,8 +118,7 @@ sudo su - jenkins
 docker ps
 No permission errors → Jenkins is Docker-capable.
 
-
-<img width="1919" height="616" alt="Screenshot 2026-02-12 112124" src="https://github.com/user-attachments/assets/68da3a25-8f27-4898-842a-07029b94a1e2" />
+![description](screenshots/test-jenkins-run.png)
 
 Phase 3 — Application for CI/CD
 A minimal Node + Express app was prepared with:
@@ -153,7 +152,8 @@ ls
 Workspace:
 
 /var/lib/jenkins/workspace/clone-job
-<img width="1919" height="973" alt="Screenshot 2026-02-12 132554" src="https://github.com/user-attachments/assets/b642b93c-157e-42a9-9693-d689505adb93" />
+
+![description](screenshots/clone-job-item1.png)
 
 
 🔹 Job 2 — docker-image-job (Triggered by clone-job)
@@ -176,8 +176,8 @@ echo "Docker image pipeline-app created successfully."
 This produces:
 
 pipeline-app:latest
-<img width="1919" height="979" alt="Screenshot 2026-02-12 132708" src="https://github.com/user-attachments/assets/5c311696-9ae6-4d6a-8450-8949935b6dec" />
-<img width="1118" height="431" alt="Screenshot 2026-02-12 132713" src="https://github.com/user-attachments/assets/7da2d4b1-9501-42f9-a415-534c9b8e782f" />
+![description](screenshots/build-img-item1.png)
+![description](screenshots/trig-item3.png)
 
 
 🔹 Job 3 — docker-run-job (Triggered by docker-image-job)
@@ -203,8 +203,7 @@ Removes old container
 
 Runs new one
 
-
-<img width="1141" height="770" alt="Screenshot 2026-02-12 132738" src="https://github.com/user-attachments/assets/8672eaef-8254-499c-90f0-5ed30c54f6f8" />
+![description](screenshots/run-job-item3.png)
 
 
 Phase 5 — Execution Flow
@@ -244,7 +243,10 @@ Browser Test
 http://<VM-IP>
 Application loads successfully.
 
-<img width="1919" height="771" alt="Screenshot 2026-02-12 132823" src="https://github.com/user-attachments/assets/8d709e1b-d660-4e4a-893b-c9e5d58e08e0" />
+
+![description](screenshots/container-created.png)
+
+![description](screenshots/running.png)
 
 
 ✅ Result
