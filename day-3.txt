@@ -223,7 +223,70 @@ git push -u origin main
 
 Pushes main branch.
 
-12. Multi-Branch Git Workflow
+
+12. Jenkins Installation and Initial Configuration on Ubuntu VM
+
+This section covers installing Jenkins on the Linux virtual machine and preparing it for CI/CD usage.
+
+Adding Jenkins Repository and Key
+curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee \
+/usr/share/keyrings/jenkins-keyring.asc > /dev/null
+
+
+Downloads and installs Jenkins GPG signing key to ensure package authenticity.
+
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+/etc/apt/sources.list.d/jenkins.list > /dev/null
+
+
+Adds Jenkins official repository to the system.
+
+Installing Jenkins
+sudo apt update
+
+Refreshes package index after adding Jenkins repository.
+
+sudo apt install openjdk-17-jdk -y
+
+Installs Java runtime required for Jenkins.
+
+sudo apt install jenkins -y
+
+Installs Jenkins automation server.
+
+Starting and Enabling Jenkins Service
+sudo systemctl start jenkins
+
+Starts Jenkins service.
+
+sudo systemctl enable jenkins
+
+Ensures Jenkins starts automatically on boot.
+
+sudo systemctl status jenkins
+
+Verifies Jenkins is running.
+
+Accessing Jenkins Web Interface
+
+Jenkins is exposed on port 8080:
+
+http://<VM-IP>:8080
+
+
+VM IP retrieved using:
+
+ip a
+
+Unlocking Jenkins
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+
+Retrieves initial admin password used to unlock Jenkins during first login.
+
+
+13. Multi-Branch Git Workflow
 git checkout day1
 
 Switches to day1 branch.
