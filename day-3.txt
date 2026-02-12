@@ -1,0 +1,279 @@
+1. Directory Navigation & Repository Inspection
+ls
+
+Lists current directory contents.
+
+cd devops_test_repo
+
+Moves into the previously cloned repository.
+
+git branch
+
+Displays existing Git branches.
+
+Executed both inside and outside the repository to confirm context.
+
+cd ..
+
+Moves back to parent directory.
+
+Used repeatedly to switch between projects.
+
+2. Docker Installation on Ubuntu
+
+This section installs Docker from the official Docker repository.
+
+sudo apt update
+
+Refreshes package lists.
+
+sudo apt install ca-certificates curl gnupg lsb-release -y
+
+Installs prerequisites required for Docker repository setup.
+
+sudo mkdir -p /etc/apt/keyrings
+
+Creates secure directory for storing GPG keys.
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+
+Downloads Docker’s GPG key and converts it into binary format for APT verification.
+
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
+https://download.docker.com/linux/ubuntu \
+$(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+
+Adds Docker’s official repository to APT sources.
+
+sudo apt update
+
+Reloads package index including Docker packages.
+
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+
+
+Installs Docker Engine and related components.
+
+3. Docker Validation & User Permissions
+sudo docker run hello-world
+
+Runs test container to confirm Docker installation.
+
+sudo usermod -aG docker $USER
+
+Adds current user to Docker group to allow non-root Docker usage.
+
+newgrp docker
+
+Applies group changes without logging out.
+
+docker run hello-world
+
+Re-tests Docker without sudo.
+
+4. Node Application Setup
+git clone https://github.com/jagadeeshkanna97/docker_sample.git
+
+Clones Node.js sample project.
+
+cd docker_sample
+
+Moves into project directory.
+
+sudo apt install npm
+
+Installs Node Package Manager.
+
+node --version
+
+Verifies Node installation.
+
+node app.js
+
+Runs Node application locally.
+
+npm install express
+
+Installs Express framework dependency.
+
+node app.js
+
+Runs updated application.
+
+5. Docker Image Build
+docker build -t docker_sample:latest .
+
+Builds Docker image from Dockerfile and tags it.
+
+6. Docker Inspection & Cleanup
+docker ps
+
+Lists running containers.
+
+docker container ls
+
+Alternative syntax for running containers.
+
+docker ps -a
+
+Lists all containers (running + stopped).
+
+docker image ls
+
+Displays available images.
+
+docker rm $(docker ps -a -q)
+
+Removes all stopped containers.
+
+docker rmi hello-world:latest
+
+Deletes hello-world image.
+
+7. Running Node Application in Docker
+docker run -p 3000:3000 --name node_app docker-sample
+
+Runs Node container with port mapping.
+
+docker run -d -p 3000:3000 --name node_app docker-sample
+
+Runs same container in detached mode.
+
+docker start node_app
+
+Starts existing container.
+
+docker stop node_app
+
+Stops Node container.
+
+8. Nginx Container Deployment
+docker pull nginx
+
+Downloads official Nginx image.
+
+docker run -d -p 80:80 --name nginx_test nginx
+
+Runs Nginx container exposing port 80.
+
+curl localhost
+
+Tests Nginx response locally.
+
+docker stop nginx_test
+
+Stops Nginx container.
+
+docker rm nginx_test
+
+Removes Nginx container.
+
+9. Hosting Static Website Using Nginx
+mkdir site
+
+Creates directory for website content.
+
+nano site/index.html
+
+Creates HTML file.
+
+git clone https://github.com/TarunRaina/ui-page-test.git
+
+Clones static UI page.
+
+docker run -d -p 80:80 --name nginx_site -v $(pwd)/ui-page-test:/usr/share/nginx/html nginx
+
+
+Runs Nginx with volume mapping to serve local HTML content.
+
+curl localhost
+
+Verifies static site deployment.
+
+10. History Logging
+touch historyfile.txt
+
+Creates history file.
+
+history > historyfile.txt
+
+Stores terminal history for documentation.
+
+11. New Git Repository: devops2
+git clone https://github.com/TarunRaina/devops2.git
+
+Clones new repository.
+
+cd devops2
+echo "#DevOps2" > README.md
+
+Creates README.
+
+git add README.md
+
+Stages README.
+
+git commit -m "Initial Commit"
+
+Creates first commit.
+
+git push -u origin main
+
+Pushes main branch.
+
+12. Multi-Branch Git Workflow
+git checkout day1
+
+Switches to day1 branch.
+
+touch day-1.txt
+
+Creates file.
+
+git rm day1.txt
+
+Deletes previous file from Git tracking.
+
+git commit -m "remove day1"
+
+Commits deletion.
+
+git push origin day1
+git add day-1.txt
+
+Stages new file.
+
+git commit -m "add new day-1.txt"
+
+Pushes update.
+
+git checkout day2
+
+Switches to day2 branch.
+
+touch day-2.txt
+
+Creates file.
+
+git add day-2.txt
+
+Stages file.
+
+git commit -m "added day2 file"
+
+Commits.
+
+git push origin day2
+git checkout dev
+
+Moves to dev branch.
+
+git checkout -b day3
+
+Creates new branch day3.
+
+touch day-3.txt
+
+Creates new file.
