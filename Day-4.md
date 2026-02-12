@@ -243,8 +243,7 @@ Browser Test
 http://<VM-IP>
 Application loads successfully.
 
-
-![Container Created](./screenshots/container-created.png)
+![Container](https://raw.githubusercontent.com/TarunRaina/devops2/day4/screenshots/container-created.png)
 
 ![description](screenshots/running.png)
 
