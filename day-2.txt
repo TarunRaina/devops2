@@ -1,0 +1,165 @@
+Context:
+All commands were executed on a Linux virtual machine (running in VMware), accessed remotely from Windows using VSCode over SSH.
+
+1. Basic Directory and File Operations
+
+These commands manage files and inspect the working directory.
+
+ls
+
+Lists all files and folders in the current directory.
+
+pwd
+
+Displays the absolute path of the current working directory.
+
+touch file1.txt
+touch day2.txt
+touch githubpass.txt
+
+Creates empty files. Used here to generate placeholder or working files inside the repository.
+
+ls *.txt
+
+Lists all files ending with .txt using wildcard matching.
+
+ls *.??
+
+Lists files with exactly two-character extensions, demonstrating shell globbing.
+
+rm day2.txt
+
+Deletes day2.txt from the filesystem.
+
+cat file1.txt
+cat day1.txt
+cat testfile1.txt
+cat day2.txt
+
+Displays file contents to standard output for verification and inspection.
+
+2. Command History Logging
+
+Used to record terminal activity.
+
+history
+
+Shows previously executed shell commands.
+
+history > day2.txt
+
+Redirects the entire command history into day2.txt.
+This was executed twice, overwriting the file with updated history.
+
+Purpose:
+
+Maintain a log of executed commands
+
+Document lab activity
+
+Track workflow steps
+
+3. Network Interface Inspection
+
+Used to verify VM networking.
+
+ifconfig
+
+Legacy command to display network interfaces.
+
+ip a
+
+Modern replacement for ifconfig. Displays IP addresses and interface states.
+
+These confirm connectivity for SSH and Git operations.
+
+4. Git Repository Setup
+
+Initializing and cloning the repository.
+
+git init
+
+Initializes a local Git repository (not strictly needed since cloning follows).
+
+git clone https://github.com/TarunRaina/devops_test_repo.git
+
+Clones the remote GitHub repository into the VM.
+
+cd devops_test_repo
+
+Navigates into the cloned project directory.
+
+5. Git User Configuration
+
+Sets author identity for commits.
+
+git config --global user.name "TarunRaina"
+git config --global user.email "tarunraina.691@gmail.com"
+
+Configures global Git username and email.
+
+git config user.name
+git config user.email
+
+Verifies configured values.
+
+6. Staging and Committing Changes
+
+Managing tracked files.
+
+git add .
+
+Stages all modified and untracked files.
+
+git add day2.txt
+
+Stages only day2.txt.
+
+git commit -m "day2 file - updated from vscode (windows) using ssh for linux"
+
+Creates a commit with a message describing the cross-platform workflow.
+
+git commit -m "Remove day2.txt from main"
+
+Commits deletion of day2.txt.
+
+7. Pushing Changes to GitHub
+
+Synchronizing local commits with the remote repository.
+
+git push -u origin main
+
+Pushes the main branch to GitHub and sets upstream tracking.
+
+git push
+
+Pushes subsequent commits using the already configured upstream branch.
+
+8. Branch Management
+
+Working with feature branches.
+
+git branch
+
+Lists available branches.
+
+git checkout day2_branch
+
+Attempts to switch to day2_branch (before it existed).
+
+git checkout -b day2_branch
+
+Creates and switches to a new branch named day2_branch.
+
+9. Repository Status Checks
+git status
+
+Displays the current state of the working directory and staging area.
+
+Used to verify:
+
+Modified files
+
+Staged changes
+
+Clean working tree
